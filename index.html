@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<title>Gift & Yacht Seating</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&family=Mali:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one narrow card like the invitation — script names, search, result with the long-table plan lighting up the guest's table, then the evening schedule */
+/* Single deliberate look taken from the invitation (cream paper, forest green, ribbon pink), so no dark variant */
+:root{
+  color-scheme:light;
+  --paper:#fbf8ef; --card:#fffdf7; --ink:#2f4a2c; --muted:#6c7a62; --line:#e6dfcd;
+  --forest:#4a6142; --leaf:#a6d48f; --leaf-soft:#e7f3dd; --ribbon:#e3a0aa; --ribbon-soft:#f8e3e6;
+  --table:#efe7d3; --chair:#d9cfb8;
+  --script:"Sacramento","Brush Script MT",cursive;
+  --body:"Mali","Comic Sans MS",system-ui,sans-serif;
+}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:560px;margin:0 auto;padding-inline:16px;padding-block:28px 56px;display:flex;flex-direction:column;gap:26px}
+header{position:relative;background:var(--forest);color:var(--card);border-radius:22px;padding:30px 20px 26px;text-align:center;display:flex;flex-direction:column;gap:4px;outline:2px solid var(--card);outline-offset:-10px}
+.eyebrow{font-size:14px;letter-spacing:.06em;opacity:.9}
+h1{font-family:var(--script);font-weight:400;font-size:clamp(56px,16vw,76px);line-height:1;margin:6px 0 4px}
+h1 .amp{color:var(--ribbon);font-size:.7em;padding-inline:.15em}
+.fullnames{font-size:13px;opacity:.85;margin:0}
+.when{margin:8px 0 0;font-weight:600;letter-spacing:.08em;font-size:15px}
+.map{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:-10px;background:#A4E4F2;color:var(--ink);text-decoration:none;font-weight:700;font-size:18px;padding:16px 20px;border-radius:16px;box-shadow:0 4px 0 #6fbfd1;transition:transform .1s,box-shadow .1s}
+.map:hover,.map:focus-visible{background:#8dd9ea;outline:3px solid var(--forest);outline-offset:3px}
+.map:active{transform:translateY(3px);box-shadow:0 1px 0 #6fbfd1}
+.map svg{width:26px;height:26px;flex:none;background:#fff;border-radius:50%;padding:5px;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.map .go{margin-left:auto;font-size:22px;line-height:1}
+.map small{display:block;font-size:13px;font-weight:500;opacity:.8}
+.search{display:flex;flex-direction:column;gap:8px}
+.search label{font-weight:600;font-size:17px}
+#q{width:100%;box-sizing:border-box;font:inherit;font-size:18px;padding:14px 16px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
+#q:focus{outline:none;border-color:var(--forest);box-shadow:0 0 0 4px var(--leaf-soft)}
+.hint{font-size:13px;color:var(--muted);margin:0}
+.list{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.list:empty{display:none}
+.list button{width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;gap:12px;cursor:pointer}
+.list button:hover,.list button:focus-visible{border-color:var(--forest);outline:none}
+.list .t{color:var(--forest);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.card{background:var(--card);border:2px solid var(--ribbon-soft);border-radius:22px;padding:22px 18px;display:flex;flex-direction:column;gap:16px}
+.who{display:flex;flex-direction:column}
+.who .name{font-size:21px;font-weight:700}
+.who .grp{color:var(--muted);font-size:14px}
+.seat{display:flex;align-items:center;gap:14px}
+.badge{background:var(--forest);color:var(--card);border-radius:18px;padding:8px 18px;display:flex;flex-direction:column;align-items:center;line-height:1.1}
+.badge small{font-size:13px;opacity:.85}
+.badge b{font-size:52px;font-weight:700;font-variant-numeric:tabular-nums}
+.seat{flex-wrap:wrap}
+.badge b.tname{font-size:24px;padding-block:14px 10px;text-align:center}
+.where{margin:0;font-size:15px;color:var(--muted)}
+.mates{font-size:14px;color:var(--muted);margin:0;padding-top:12px;border-top:1.5px dashed var(--line);display:flex;flex-direction:column;gap:2px}
+.mates b{color:var(--ink);font-weight:600}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--leaf-soft);padding:4px;border-radius:14px}
+.tabs button{font:inherit;font-size:15px;font-weight:600;line-height:1.3;border:0;border-radius:10px;padding:10px 6px;background:transparent;color:var(--forest);cursor:pointer}
+.tabs button small{display:block;font-size:12px;font-weight:500;opacity:.8}
+.tabs button[aria-selected="true"]{background:var(--forest);color:var(--card);box-shadow:0 2px 4px rgba(0,0,0,.15)}
+.tabs button:focus-visible{outline:3px solid var(--ribbon);outline-offset:2px}
+.plans{display:flex;flex-direction:column;gap:18px}
+.plans figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.plans figcaption{font-size:13px;color:var(--muted);text-align:center}
+.zoombox{overflow:hidden;width:100%;max-width:220px;margin:0 auto;border-radius:14px}
+.zoombox svg{display:block;width:100%;height:auto;will-change:transform}
+.tchart{display:flex;flex-direction:column;gap:6px}
+.tchart h3{margin:0;font-size:16px;font-weight:700;text-align:center}
+.tstage{text-align:center;font-size:13px;color:var(--muted)}
+.tgrid{display:grid;grid-template-columns:minmax(0,1fr) 60px minmax(0,1fr);column-gap:8px;row-gap:4px}
+.tgrid .bar{grid-column:2;background:var(--table);border:1.5px solid var(--chair);border-radius:10px;margin-block:2px}
+.tgrid .hd{font-size:13px;font-weight:700;color:var(--forest)}
+.tgrid .hd.a{text-align:right}
+.sc{display:flex;align-items:center;gap:6px;font-size:14px;line-height:1.3;padding:4px 6px;border-radius:10px;min-height:36px}
+.sc.a{justify-content:flex-end;text-align:right}
+.sc .c{flex:none;min-width:32px;height:24px;padding-inline:4px;box-sizing:border-box;border-radius:12px;background:var(--leaf-soft);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;color:var(--muted);font-variant-numeric:tabular-nums}
+.sc .n{min-width:0;overflow-wrap:anywhere}
+.sc.me{background:var(--ribbon-soft);font-weight:700}
+.sc.me .c{background:var(--ribbon);color:var(--ink)}
+.sc.empty .n{color:var(--muted);opacity:.6}
+.empty{text-align:center;color:var(--muted);font-size:15px;margin:0}
+.story{display:flex;flex-direction:column;align-items:center;gap:10px}
+.story video{display:block;width:100%;max-width:340px;aspect-ratio:9/16;height:auto;border-radius:18px;background:var(--forest);outline:2px solid var(--ribbon-soft);outline-offset:4px}
+.story p{margin:0;font-size:14px;color:var(--muted)}
+h2{font-family:var(--script);font-weight:400;font-size:44px;margin:0;text-align:center;color:var(--forest);line-height:1}
+.sched{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.sched li{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:10px 4px;border-bottom:1.5px dashed var(--line)}
+.sched li:last-child{border-bottom:0}
+.sched time{font-weight:700;font-variant-numeric:tabular-nums;line-height:1.3}
+.sched time small{display:block;font-weight:500;font-size:13px;color:var(--muted)}
+.sched span small{display:block;color:var(--muted);font-size:13px}
+.dress{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dots i{width:28px;height:28px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.dress p{margin:0;font-size:14px;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);text-align:center;margin:0}
+@media (prefers-reduced-motion:no-preference){.card{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.98)}to{transform:none}}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">You are invited to our wedding</span>
+    <h1>Gift<span class="amp">&amp;</span>Yacht</h1>
+    <p class="fullnames">Thanyathorn Thongriew · Premsit Wanitthanya</p>
+    <p class="when">31.10.2026 · BARN KLONGSUAN</p>
+  </header>
+
+  <a class="map" href="https://maps.app.goo.gl/PnPxzrae9vgYVmjj6" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <defs><clipPath id="gpin"><path d="M12 1.5a7.5 7.5 0 0 0-7.5 7.5c0 5.6 7.5 13.5 7.5 13.5S19.5 14.6 19.5 9A7.5 7.5 0 0 0 12 1.5z"/></clipPath></defs>
+      <g clip-path="url(#gpin)">
+        <rect width="24" height="24" fill="#34A853"/>
+        <polygon points="0,0 24,0 24,4 12,9 3,15 0,15" fill="#EA4335"/>
+        <polygon points="0,4 12,9 3,18 0,18" fill="#4285F4"/>
+        <polygon points="12,9 24,4 24,10 8,24 3,24 3,18" fill="#FBBC04"/>
+      </g>
+      <circle cx="12" cy="9" r="2.8" fill="#fff"/>
+    </svg>
+    <span>กดนำทางไปงานแต่ง<small>เปิด Google Maps · BARN KLONGSUAN</small></span>
+    <span class="go" aria-hidden="true">›</span>
+  </a>
+
+  <div class="search">
+    <label for="q">หาโต๊ะของคุณ</label>
+    <input id="q" type="search" autocomplete="off" placeholder="พิมพ์ชื่อเล่น เช่น พี่อ้อ, ต้น">
+    <p class="hint">พิมพ์แค่บางส่วนก็เจอ ถ้ามีชื่อซ้ำ เลือกจากรายการได้เลย</p>
+  </div>
+
+  <ul class="list" id="list"></ul>
+  <div id="result"></div>
+
+  <section class="story">
+    <h2>Once upon a time</h2>
+    <video id="story" controls playsinline preload="metadata" poster="story-poster.jpg">
+      <source src="story.mp4" type="video/mp4">
+    </video>
+    <p>กดเล่นพร้อมเสียงได้เลย</p>
+  </section>
+
+  <section class="card" style="animation:none">
+    <h2>Schedule</h2>
+    <ul class="sched">
+      <li><time>15.00<small>–15.30</small></time><span>พิธีรับไหว้<small>Tea Ceremony · ครอบครัวและญาติผู้ใหญ่</small></span></li>
+      <li><time>16.00<small>–17.00</small></time><span>ถ่ายรูปกับบ่าวสาว<small>Photo Session · เพื่อน ญาติ และครอบครัว</small></span></li>
+      <li><time>17.00<small>–17.30</small></time><span>พิธีแต่งงาน<small>Vow Ceremony</small></span></li>
+      <li><time>17.30<small>–18.50</small></time><span>ถ่ายรูปตามอัธยาศัย<small>Photo Session</small></span></li>
+      <li><time>19.00</time><span>พิธีการบนเวที<small>Stage Program</small></span></li>
+      <li><time>19.30<small>–19.45</small></time><span>เป่าเค้ก แล้วเริ่มดินเนอร์<small>Cake Cutting · Dinner Reception, Long Table Buffet</small></span></li>
+    </ul>
+    <div class="dress">
+      <strong>Dress code</strong>
+      <div class="dots" aria-label="โทนสีชุด">
+        <i style="background:#3f5a3a"></i><i style="background:#7f9b48"></i><i style="background:#f2c96b"></i><i style="background:#e9a3ad"></i><i style="background:#d9774f"></i><i style="background:#bcd6ef"></i><i style="background:#f3e6d6"></i>
+      </div>
+      <p>Semi-formal · แต่งตัวโทนสีตามนี้ได้เลย</p>
+    </div>
+  </section>
+
+  <p class="note">หาชื่อไม่เจอ ถามทีมงานหน้างานได้เลย</p>
+</div>
+
+<script>
+// ---- ผังที่นั่งจริง: แต่ละโต๊ะ rows = [แถว A (ซ้าย), แถว B (ขวา)] เรียงจากฝั่งเวที, "" = ที่ว่าง ----
+// col = คอลัมน์ในห้องจากซ้ายไปขวา (1–4), เรียงบนลงล่างตามลำดับในรายการ
+const TABLES = [
+  {name:"VIP I", col:1, r0:18, rows:[["พ่อกิ๊ฟ", "กล้า"], ["แม่กิ๊ฟ", "ป้าสั้น"], ["พี่ตาล", ""], ["พี่นุช", "ป้าดา"], ["น้องเอย่า", "ป้าแก้ว"], ["พี่หมิว", "ลุงทุม"]]},
+  {name:"Our Friends", col:1, r0:30, rows:[["มด", "แฟนแอมมี่"], ["แมน", "แอมมี่"], ["อาย", "ฮิวมัส"], ["ปืน", "ตี่ (เพื่อนยอร์ช)"], ["เป็ด", "หญิง"], ["น้องไอชิ", "พอร์ช"], ["โจ แฟนเป็ด", "ตี่ (แฟนเจน)"], ["ป๋อ", "เจน แฟนตี่"], ["เกมส์ แฟนป๋อ", "ปอย"]]},
+  {name:"Yacht's Friends", col:1, r0:44, rows:[["ตงตง", "ข้าวปุ้น"], ["น้องก้อย", "แม่ข้าวปุ้น"], ["น้องอาโม", "มอส"], ["เมฆ", "ก้อย"], ["หยุ่น", "บอส"], ["น้องมิมิล", "แฟนเอ๋ย"], ["เกมส์", "เอ๋ย"], ["พี่รง", "ธีระ"], ["น้องชม", "แฟนธีระ"]]},
+  {name:"VIP III", col:2, r0:27, rows:[["คุณพงษ์ศักดิ์", "พี่เจน"], ["ภรรยาคุณพงษ์ศักดิ์", "คุณประวิทย์"], ["พี่ไก่", "พี่แบงค์ SPC"], ["พี่เป้า WCO", "พี่อาย Sale"], ["พี่อูน", "นัท แฟนอาย"], ["น้องวุฒิ", "น้องเรย์"], ["น้องเวล", "พี่รุ่ง Sale"], ["พี่เจ Q", "พี่เอื้อ Sale"], ["เฟรนด์", "พี่บอม CE"]]},
+  {name:"Gift's Friends", col:2, r0:40, rows:[["พี่กะสะมา", "พี่จุ๋ม"], ["พี่ฟาฮัด", "พี่เมศ"], ["พี่แนท ช Sale", "พี่แชมป์"], ["น้องคิม Sale", "น้องแบงค์ GKA"], ["พี่มะนาว", "น้องเป้ GKA"], ["แฟกซ์", "ชมพู่"], ["น้องซี Sale", "แฟนชมพู่"], ["แอร์", "ฮาเล่ I&PD"], ["พี่นินจา Sale", "แฟนฮาเล่"], ["พีระ", "น้องฝน IPD"], ["ป็อป", "น้องเมย์ IPD"], ["ปุ้ย", "น้องบ๊วย IPD"]]},
+  {name:"Huhtamaki I", col:3, r0:27, rows:[["พี่ธีร์", "พี่วุฒิ"], ["แฟนพี่ธีร์", "พี่แยม"], ["พี่โป้ง", "น้องเจ้าขา"], ["น้องอ๊ะอาย", "พร QA"], ["พี่เฟิร์น (แฟนพี่โป้ง)", "พี่กนก PR1"], ["พี่ประมวล", "น้องบรู๊คลิน"], ["พี่เต้ Q", "น้องคิริน"], ["พี่เซาฟาน", "พี่โน๊ต PE"], ["พี่ก็อต IT", "เติ้ล PR1"]]},
+  {name:"Huhtamaki II", col:3, r0:40, rows:[["หมิว PE", "กี้"], ["ปู Pre-Press", "พี่ภานุ"], ["ทัชชา SB2", "พี่เงาะ"], ["ฝ้าย PR2", "น้องเจ้านาย"], ["เน QC", "ติน BL"], ["พี่เจ BM2", "แฟนติน"], ["โย PE", "บอล BL"], ["อ๋อง PE", "ส้ม PL (แฟนบอล)"], ["พลอย (แฟนอ๋อง)", ""]]},
+  {name:"VIP II", col:4, r0:18, rows:[["เฮียเอ็ม", "พ่อพล"], ["ตอง", "แม่ทิพย์"], ["พี่อ๋อย", "โกวปู"], ["เจ็ก", "เจมส์"], ["แองจี้", "น้องเทียน"], ["แองเจิ้ล", "พี่อ้อ"], ["อี้แดง", "พี่กิ๊ฟ"], ["อี้ทอน", "เฮียเอก"], ["เตี่ยเซง", "มิกกี้เมาท์"], ["จอย", "เฮียท็อป"], ["", "แฟนเฮียท็อป"], ["", "ลูกเฮียท็อป"]]},
+  {name:"Huhtamaki III", col:4, r0:34, rows:[["พี่ปุ๋ย พิมพ์", "พี่เอ้ Sale"], ["พี่บี PL", "พี่อั๋น MT"], ["พี่ใหม่ PL", "พี่นก ACC"], ["ไอซ์ PL", "พี่เล็กๆ CS"], ["แฟนไอซ์", "น้องแก้ม Sale"], ["ปุ๋ย QA", "พี่ผึ้ง Sale"], ["Bird", "น้องอลิซ"], ["", ""], ["", ""]]},
+  {name:"CNC Gym", col:4, r0:47, rows:[["เบส CNC", "พี่โรจน์ CNC"], ["บอส CNC", "พี่แจ๊ค CNC"], ["พี่จ่อน CNC", "พี่อิ่ม CNC"], ["พี่เอ๋ CNC", "พี่วา CNC"], ["พี่เบิร์ด CNC", "พี่เจ CNC"], ["น้ำ CNC", ""]]}
+];
+// ------------------------------------------------------------
+
+// คำนวณตำแหน่งโต๊ะในผังห้อง
+const COLX = {1:150, 2:355, 3:618, 4:818}, COLY = {1:330, 2:700, 3:700, 4:330}, ROWH = 46, GAP = 90;
+const next = {...COLY};
+TABLES.forEach((t,i)=>{ t.i=i; t.h = t.rows.length*ROWH + 10; t.x = COLX[t.col]; t.y = 330 + (t.r0-18)*ROWH*1.15; next[t.col] = t.y + t.h + GAP; });
+const ROOMH = Math.max(...Object.values(next)) + 20;
+
+const GUESTS = [];
+TABLES.forEach(t=>t.rows.forEach((r,ri)=>r.forEach((n,si)=>{ if(n) GUESTS.push({name:n, t, row:ri, side:si}); })));
+
+const norm = s => s.toLowerCase().replace(/^(คุณ)/,"").replace(/[\s().'’]/g,"");
+const esc = s => s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const code = g => (g.side?"B":"A") + (g.row+1);
+const q = document.getElementById("q"), list = document.getElementById("list"), result = document.getElementById("result");
+
+function room(g){
+  let s = `<svg viewBox="40 40 940 ${ROOMH}" role="img" aria-label="ผังห้อง โต๊ะ ${esc(g.t.name)} ถูกไฮไลต์">
+  <rect x="52" y="60" width="916" height="${ROOMH-30}" rx="18" fill="var(--paper)" stroke="var(--line)" stroke-width="6"/>
+  <rect x="273" y="60" width="481" height="200" rx="14" fill="var(--forest)"/>
+  <text x="513" y="185" text-anchor="middle" font-size="80" font-family="var(--script)" fill="var(--card)">Stage</text>
+  <rect x="40" y="690" width="26" height="200" rx="6" fill="var(--ribbon)"/>
+  <text x="84" y="770" font-size="34" font-weight="700" font-family="var(--body)" fill="var(--ink)">◀ บุฟเฟ่ต์</text>
+  <text x="84" y="815" font-size="26" font-family="var(--body)" fill="var(--muted)">ประตูไปห้องอาหาร</text>
+  <rect x="40" y="1447" width="26" height="200" rx="6" fill="var(--ribbon)"/>
+  <text x="84" y="1490" font-size="34" font-weight="700" font-family="var(--body)" fill="var(--ink)">◀ บุฟเฟ่ต์</text>
+  `;
+  for (const t of TABLES){
+    const on = t===g.t;
+    t.rows.forEach((r,ri)=>r.forEach((n,si)=>{
+      const cx = si ? t.x+86 : t.x-26, cy = t.y + 28 + ri*ROWH, me = on && ri===g.row && si===g.side;
+      s += `<circle cx="${cx}" cy="${cy}" r="${me?30:18}" fill="${me?"var(--ribbon)":on?"var(--leaf)":"var(--chair)"}" ${n?"":'opacity=".35"'}/>`;
+    }));
+    s += `<rect x="${t.x}" y="${t.y}" width="60" height="${t.h}" rx="8" fill="${on?"var(--forest)":"var(--table)"}"/>
+      <text transform="translate(${t.x+30} ${t.y+t.h/2}) rotate(-90)" text-anchor="middle" dominant-baseline="central" font-size="${on?40:34}" font-weight="700" font-family="var(--body)" fill="${on?"var(--card)":"var(--muted)"}">${esc(t.name)}</text>`;
+    if (on) s += `<rect class="hl" x="${t.x-66}" y="${t.y-22}" width="192" height="${t.h+44}" rx="28" fill="none" stroke="var(--ribbon)" stroke-width="8" stroke-dasharray="20 14"/>`;
+  }
+  return s + "</svg>";
+}
+
+function seatChart(g){
+  const t = g.t;
+  let cells = `<div class="hd a" style="grid-row:1;grid-column:1">แถว A</div><div class="hd" style="grid-row:1;grid-column:3">แถว B</div><div class="bar" style="grid-row:2 / span ${t.rows.length}"></div>`;
+  t.rows.forEach((r,ri)=>r.forEach((n,si)=>{
+    const c = (si?"B":"A")+(ri+1), me = ri===g.row && si===g.side;
+    const chip = `<span class="c">${c}</span>`, nm = `<span class="n">${n?esc(n):"ว่าง"}</span>`;
+    cells += `<div class="sc ${si?"b":"a"}${me?" me":""}${n?"":" empty"}" style="grid-row:${ri+2};grid-column:${si?3:1}">${si?chip+nm:nm+chip}</div>`;
+  }));
+  return `<div class="tchart"><h3>ใครนั่งตรงไหนใน ${esc(t.name)}</h3><div class="tstage">▲ ฝั่งเวที</div><div class="tgrid">${cells}</div></div>`;
+}
+
+function show(g){
+  const t = g.t, at = (ri,si) => t.rows[ri]?.[si] || "";
+  const nb = [at(g.row-1,g.side), at(g.row+1,g.side)].filter(Boolean), ac = at(g.row, 1-g.side);
+  list.innerHTML = "";
+  result.innerHTML = `<div class="card" aria-live="polite">
+    <div class="who"><span class="name">${esc(g.name)}</span></div>
+    <div class="seat">
+      <div class="badge"><small>โต๊ะ</small><b class="tname">${esc(t.name)}</b></div>
+      <div class="badge" style="background:var(--ribbon);color:var(--ink)"><small>ที่นั่ง</small><b>${code(g)}</b></div>
+    </div>
+    <p class="where">แถว ${g.side?"B (ขวา)":"A (ซ้าย)"} ตัวที่ ${g.row+1} นับจากฝั่งเวที</p>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tab-room" aria-selected="true" aria-controls="pane-room">โต๊ะอยู่ตรงไหน<small>ผังห้อง</small></button>
+      <button type="button" role="tab" id="tab-seats" aria-selected="false" aria-controls="pane-seats">ใครนั่งตรงไหน<small>รายชื่อ ${t.rows.flat().filter(Boolean).length} คนในโต๊ะ</small></button>
+    </div>
+    <div class="plans">
+      <figure class="roomfig" id="pane-room" role="tabpanel" aria-labelledby="tab-room"><div class="zoombox">${room(g)}</div><figcaption>โต๊ะของคุณในห้อง</figcaption></figure>
+      <div id="pane-seats" role="tabpanel" aria-labelledby="tab-seats" hidden>${seatChart(g)}</div>
+    </div>
+    ${(nb.length||ac)?`<div class="mates">${nb.length?`<span>นั่งข้างๆ <b>${nb.map(esc).join(", ")}</b></span>`:""}${ac?`<span>นั่งตรงข้าม <b>${esc(ac)}</b></span>`:""}</div>`:""}
+  </div>`;
+}
+
+function search(){
+  const v = norm(q.value);
+  result.innerHTML = ""; list.innerHTML = "";
+  if (!v) return;
+  const hits = GUESTS.filter(g=>norm(g.name).includes(v));
+  if (hits.length===1) return show(hits[0]);
+  if (!hits.length){ result.innerHTML = `<p class="empty">ไม่พบ "${esc(q.value)}" ลองพิมพ์ชื่อเล่นแบบอื่น หรือถามทีมงานหน้างานได้เลย</p>`; return; }
+  hits.slice(0,10).forEach(g=>{
+    const li = document.createElement("li"), b = document.createElement("button");
+    b.innerHTML = `<span>${esc(g.name)}</span><span class="t">${esc(g.t.name)} · ${code(g)}</span>`;
+    b.onclick = ()=>show(g); li.append(b); list.append(li);
+  });
+  if (hits.length>10){ const li=document.createElement("li"); li.className="hint"; li.textContent=`และอีก ${hits.length-10} คน พิมพ์ให้ยาวขึ้นอีกนิด`; list.append(li); }
+}
+q.addEventListener("input", search);
+// สลับแท็บ: ผังห้องซูมเข้าไปที่โต๊ะ แล้วค่อยเปิดผังรายชื่อ / ย้อนกลับก็ซูมออกให้เห็นทั้ง hall
+const calm = matchMedia("(prefers-reduced-motion: reduce)");
+let busy = false;
+function zoomTo(svg){
+  const box = svg.parentElement.getBoundingClientRect(), hl = svg.querySelector(".hl").getBoundingClientRect(), r = svg.getBoundingClientRect();
+  const k = Math.min(5, box.width*0.85/hl.width, box.height*0.85/hl.height);
+  const ox = hl.left + hl.width/2 - r.left, oy = hl.top + hl.height/2 - r.top;
+  return { origin:`${ox}px ${oy}px`, t:`translate(${box.width/2-ox}px,${box.height/2-oy}px) scale(${k})` };
+}
+async function switchTab(to){
+  const roomP = document.getElementById("pane-room"), seatP = document.getElementById("pane-seats");
+  const svg = roomP.querySelector("svg"), fx = (el)=>el.getAnimations().forEach(a=>a.cancel());
+  if (calm.matches || !svg.animate){ roomP.hidden = to!=="room"; seatP.hidden = to==="room"; return; }
+  busy = true;
+  try{
+    if (to==="seats"){
+      const z = zoomTo(svg); svg.style.transformOrigin = z.origin;
+      await svg.animate([{transform:"none"},{transform:z.t}],{duration:700,easing:"cubic-bezier(.55,0,.2,1)",fill:"forwards"}).finished;
+      await roomP.animate([{opacity:1},{opacity:0}],{duration:160,fill:"forwards"}).finished;
+      roomP.hidden = true; fx(roomP); fx(svg);
+      seatP.hidden = false;
+      await seatP.animate([{opacity:0,transform:"scale(.82)"},{opacity:1,transform:"none"}],{duration:380,easing:"cubic-bezier(.2,.8,.2,1)"}).finished;
+    } else {
+      await seatP.animate([{opacity:1,transform:"none"},{opacity:0,transform:"scale(.82)"}],{duration:220,easing:"ease-in",fill:"forwards"}).finished;
+      seatP.hidden = true; fx(seatP);
+      roomP.hidden = false;
+      const z = zoomTo(svg); svg.style.transformOrigin = z.origin;
+      await svg.animate([{transform:z.t,opacity:0},{transform:z.t,opacity:1,offset:.2},{transform:"none",opacity:1}],{duration:850,easing:"cubic-bezier(.45,0,.2,1)"}).finished;
+    }
+  } finally { busy = false; }
+}
+result.addEventListener("click", e=>{
+  const b = e.target.closest(".tabs button"); if (!b || busy || b.getAttribute("aria-selected")==="true") return;
+  result.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected", x===b));
+  switchTab(b.id==="tab-room" ? "room" : "seats");
+});
+</script>
+</body>
+</html>
