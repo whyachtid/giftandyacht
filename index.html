@@ -18,27 +18,28 @@
 }
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
 .wrap{max-width:560px;margin:0 auto;padding-inline:16px;padding-block:28px 56px;display:flex;flex-direction:column;gap:26px}
-header{position:relative;background:var(--forest);color:var(--card);border-radius:22px;padding:30px 20px 26px;text-align:center;display:flex;flex-direction:column;gap:4px;outline:2px solid var(--ribbon-soft)}
+header{position:relative;background:var(--forest);color:var(--card);border-radius:22px;padding:30px 20px 26px;text-align:center;display:flex;flex-direction:column;gap:4px;outline:2px solid var(--ribbon-soft);outline-offset:4px}
 .eyebrow{font-size:14px;letter-spacing:.06em;opacity:.9}
 h1{font-family:var(--script);font-weight:400;font-size:clamp(56px,16vw,76px);line-height:1;margin:6px 0 4px}
 h1 .amp{color:var(--ribbon);font-size:.7em;padding-inline:.15em}
 .fullnames{font-size:13px;opacity:.85;margin:0}
 .when{margin:8px 0 0;font-weight:600;letter-spacing:.08em;font-size:15px}
-.map{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:-10px;background:#A4E4F2;color:var(--ink);text-decoration:none;font-weight:700;font-size:18px;padding:16px 20px;border-radius:18px;box-shadow:0 8px 18px rgba(74,97,66,.12);transition:transform .15s ease, box-shadow .15s ease}
-.map:hover,.map:focus-visible{background:#8dd9ea;outline:3px solid var(--forest);outline-offset:3px}
-.map:active{transform:translateY(3px);box-shadow:0 1px 0 #6fbfd1}
+.top-actions{display:grid;grid-template-columns:3fr 2fr;gap:12px;margin-top:-10px;align-items:stretch}
+.action-btn{display:flex;align-items:center;gap:12px;min-height:88px;padding:16px 18px;border-radius:18px;text-decoration:none;color:var(--ink);font-weight:700;box-shadow:0 6px 14px rgba(37,64,57,.08);transition:transform .18s ease, box-shadow .18s ease, filter .18s ease}
+.action-btn:hover,.action-btn:focus-visible{filter:brightness(.985);outline:3px solid var(--forest);outline-offset:3px;transform:translateY(-1px)}
+.action-btn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.map{background:#A4E4F2;border:2px solid transparent}
 .map svg{width:26px;height:26px;flex:none;background:#fff;border-radius:50%;padding:5px;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.map .label{display:flex;flex-direction:column;align-items:flex-start;min-width:0;flex:1}
+.map .label strong{display:block;font-size:18px;line-height:1.2}
+.map .label small{display:block;font-size:12px;font-weight:600;opacity:.8}
 .map .go{margin-left:auto;font-size:22px;line-height:1}
-.map small{display:block;font-size:13px;font-weight:500;opacity:.8}
-.parking{background:var(--card);border:2px solid var(--leaf-soft);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;margin-top:-6px}
-.parking-head{display:flex;align-items:center;gap:12px}
-.parking-badge{width:42px;height:42px;border-radius:12px;background:var(--leaf-soft);display:grid;place-items:center;font-size:22px}
-.parking strong{display:block;font-size:18px;line-height:1.2}
-.parking small{display:block;color:var(--muted);font-size:12px}
-.parking p{margin:0;font-size:15px;color:var(--muted)}
-.parking-note{padding-top:4px;border-top:1px dashed var(--line);font-size:13px}
-.parking-link{display:inline-flex;align-items:center;justify-content:center;background:#A4E4F2;color:var(--ink);text-decoration:none;font-weight:700;border-radius:12px;padding:12px 14px;box-shadow:0 6px 14px rgba(74,97,66,.10)}
-.parking-link:hover,.parking-link:focus-visible{background:#8dd9ea;outline:3px solid var(--forest);outline-offset:3px}
+.parking-btn{background:linear-gradient(180deg,#edf8e6 0%,#e4f5db 100%);border:2px solid #cfe6c2;cursor:pointer;padding-inline:14px}
+.parking-btn svg{width:30px;height:30px;flex:none}
+.parking-btn .label{display:flex;flex-direction:column;align-items:flex-start;min-width:0;flex:1}
+.parking-btn .label strong{display:block;font-size:17px;line-height:1.2}
+.parking-btn .label small{display:block;font-size:11px;font-weight:700;opacity:.8}
+.parking-btn .go{margin-left:auto;font-size:22px;line-height:1}
 .search{display:flex;flex-direction:column;gap:8px}
 .search label{font-weight:600;font-size:17px}
 #q{width:100%;box-sizing:border-box;font:inherit;font-size:18px;padding:14px 16px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
@@ -46,7 +47,7 @@ h1 .amp{color:var(--ribbon);font-size:.7em;padding-inline:.15em}
 .hint{font-size:13px;color:var(--muted);margin:0}
 .list{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
 .list:empty{display:none}
-.list button{width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;gap:12px;align-items:center;cursor:pointer;transition:border-color .15s ease, transform .15s ease}
+.list button{width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;gap:8px;cursor:pointer}
 .list button:hover,.list button:focus-visible{border-color:var(--forest);outline:none}
 .list .t{color:var(--forest);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
 .card{background:var(--card);border:2px solid var(--ribbon-soft);border-radius:22px;padding:22px 18px;display:flex;flex-direction:column;gap:16px}
@@ -102,6 +103,10 @@ h2{font-family:var(--script);font-weight:400;font-size:44px;margin:0;text-align:
 .dots i{width:28px;height:28px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
 .dress p{margin:0;font-size:14px;color:var(--muted)}
 .note{font-size:13px;color:var(--muted);text-align:center;margin:0}
+@media (max-width: 420px){
+  .top-actions{grid-template-columns:1fr}
+  .action-btn{min-height:76px}
+}
 @media (prefers-reduced-motion:no-preference){.card{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.98)}to{transform:none}}}
 </style>
 </head>
@@ -115,33 +120,32 @@ h2{font-family:var(--script);font-weight:400;font-size:44px;margin:0;text-align:
     <p class="when">31.10.2026 · BARN KLONGSUAN</p>
   </header>
 
-  <a class="map" href="https://maps.app.goo.gl/PnPxzrae9vgYVmjj6" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <defs><clipPath id="gpin"><path d="M12 1.5a7.5 7.5 0 0 0-7.5 7.5c0 5.6 7.5 13.5 7.5 13.5S19.5 14.6 19.5 9A7.5 7.5 0 0 0 12 1.5z"/></clipPath></defs>
-      <g clip-path="url(#gpin)">
-        <rect width="24" height="24" fill="#34A853"/>
-        <polygon points="0,0 24,0 24,4 12,9 3,15 0,15" fill="#EA4335"/>
-        <polygon points="0,4 12,9 3,18 0,18" fill="#4285F4"/>
-        <polygon points="12,9 24,4 24,10 8,24 3,24 3,18" fill="#FBBC04"/>
-      </g>
-      <circle cx="12" cy="9" r="2.8" fill="#fff"/>
-    </svg>
-    <span>กดนำทางไปงานแต่ง<small>เปิด Google Maps · BARN KLONGSUAN</small></span>
-    <span class="go" aria-hidden="true">›</span>
-  </a>
+  <div class="top-actions">
+    <a class="action-btn map" href="https://maps.app.goo.gl/PnPxzrae9vgYVmjj6" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <defs><clipPath id="gpin"><path d="M12 1.5a7.5 7.5 0 0 0-7.5 7.5c0 5.6 7.5 13.5 7.5 13.5S19.5 14.6 19.5 9A7.5 7.5 0 0 0 12 1.5z"/></clipPath></defs>
+        <g clip-path="url(#gpin)">
+          <rect width="24" height="24" fill="#34A853"/>
+          <polygon points="0,0 24,0 24,4 12,9 3,15 0,15" fill="#EA4335"/>
+          <polygon points="0,4 12,9 3,18 0,18" fill="#4285F4"/>
+          <polygon points="12,9 24,4 24,10 8,24 3,24 3,18" fill="#FBBC04"/>
+        </g>
+        <circle cx="12" cy="9" r="2.8" fill="#fff"/>
+      </svg>
+      <span class="label"><strong>กดนำทางไปงานแต่ง</strong><small>เปิด Google Maps · BARN KLONGSUAN</small></span>
+      <span class="go" aria-hidden="true">›</span>
+    </a>
 
-  <section class="parking" aria-label="ที่จอดรถ">
-    <div class="parking-head">
-      <span class="parking-badge" aria-hidden="true">🚗</span>
-      <div>
-        <strong>จุดจอดรถ</strong>
-        <small>สำหรับผู้ร่วมงาน</small>
-      </div>
-    </div>
-    <p>จุดจอดรถสำหรับงานแต่งนนี้อยู่ที่บริเวณนี้ตรงๆ</p>
-    <a class="parking-link" href="https://maps.app.goo.gl/MLkubUUZhc8sUipXA" target="_blank" rel="noopener">เปิดแผนที่จุดจอดรถ</a>
-    <p class="parking-note">หากลานจอดรถหลักเต็ม ขอแนะนำให้ใช้พื้นที่จอดรถใกล้ venue แล้วเดินเข้ามาในงานได้เลย</p>
-  </section>
+    <button class="action-btn parking-btn" type="button" data-parking-url="https://maps.app.goo.gl/MLkubUUZhc8sUipXA" aria-label="จุดจอดรถ">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M18 16h17.5c9.4 0 16 6.2 16 14.2S44.9 44.4 35.5 44.4H29v15.6H18V16zm11 20.2h6.5c4.6 0 7.4-2.7 7.4-6.2s-2.8-6.2-7.4-6.2H29v12.4z" fill="#2f4a2c"/>
+        <circle cx="24.5" cy="47.2" r="4.2" fill="#2f4a2c"/>
+        <circle cx="42.5" cy="47.2" r="4.2" fill="#2f4a2c"/>
+      </svg>
+      <span class="label"><strong>จุดจอดรถ</strong><small>ลานจอดรถสำหรับงาน</small></span>
+      <span class="go" aria-hidden="true">›</span>
+    </button>
+  </div>
 
   <div class="search">
     <label for="q">หาโต๊ะของคุณ</label>
@@ -173,7 +177,7 @@ h2{font-family:var(--script);font-weight:400;font-size:44px;margin:0;text-align:
     <div class="dress">
       <strong>Dress code</strong>
       <div class="dots" aria-label="โทนสีชุด">
-        <i style="background:#3f5a3a"></i><i style="background:#7f9b48"></i><i style="background:#f2c96b"></i><i style="background:#e9a3ad"></i><i style="background:#d9774f"></i><i style="background:#b98a5d"></i>
+        <i style="background:#3f5a3a"></i><i style="background:#7f9b48"></i><i style="background:#f2c96b"></i><i style="background:#e9a3ad"></i><i style="background:#d9774f"></i><i style="background:#f8f1d5"></i>
       </div>
       <p>Semi-formal · แต่งตัวโทนสีตามนี้ได้เลย</p>
     </div>
@@ -184,16 +188,16 @@ h2{font-family:var(--script);font-weight:400;font-size:44px;margin:0;text-align:
 
 <script>
 const TABLES = [
-  {name:"VIP I", col:1, r0:18, rows:[["พ่อกิ๊ฟ", "กล้า"], ["แม่กิ๊ฟ", "ป้าสั้น"], ["พี่ตาล", ""], ["พี่นุช", "ป้าพี"], ["น้องพิม", "พี่เอม"]]},
-  {name:"Our Friends", col:1, r0:30, rows:[["มด", "แฟนแอมมี่"], ["แมน", "แอมมี่"], ["อาย", "ฮิวมัส"], ["ปืน", "ตี่ (เพื่อน)"], ["ปา", ""]]},
-  {name:"Yacht's Friends", col:1, r0:44, rows:[["ตงตง", "ข้าวปุ้น"], ["น้องก้อย", "แม่ข้าวปุ้น"], ["น้องอาโม", "มะลิ"], ["น้องนุช", ""]]},
-  {name:"VIP III", col:2, r0:27, rows:[["คุณพงษ์ศักดิ์", "พี่เจน"], ["ภรรยาคุณพงษ์ศักดิ์", "คุณประวิท"]]},
-  {name:"Gift's Friends", col:2, r0:40, rows:[["พี่กะสะมา", "พี่จุ๋ม"], ["พี่ฟาฮัด", "พี่เมศ"], ["พี่แนท ช Sale", "พี่นัท"], ["พี่แฮปปี้", ""]]},
-  {name:"Huhtamaki I", col:3, r0:27, rows:[["พี่ธีร์", "พี่วุฒิ"], ["แฟนพี่ธีร์", "พี่แยม"], ["พี่โป้ง", "น้องเอก"], ["ปู", "พี่อ๊อฟ"]]},
-  {name:"Huhtamaki II", col:3, r0:40, rows:[["หมิว PE", "กี้"], ["ปู Pre-Press", "พี่ภานุ"], ["ทัชชา SB2", "พี่เงาะ"], ["ฝ้าย PR2", "พี่ฟ้า"]]},
-  {name:"VIP II", col:4, r0:18, rows:[["เฮียเอ็ม", "พ่อพล"], ["ตอง", "แม่ทิพย์"], ["พี่อ๋อย", "โกวปู"], ["เจ็ก", "ป้าแพรว"]]},
-  {name:"Huhtamaki III", col:4, r0:34, rows:[["พี่ปุ๋ย พิมพ์", "พี่เอ้ Sale"], ["พี่บี PL", "พี่อั๋น MT"], ["พี่ใหม่ PL", "พี่เปิ้ล"], ["พี่โต้ง", ""]]},
-  {name:"CNC Gym", col:4, r0:47, rows:[["เบส CNC", "พี่โรจน์ CNC"], ["บอส CNC", "พี่แจ๊ค CNC"], ["พี่จ่อน CNC", "พี่อิ่ม CNC"], ["พี่คิง", ""]]}
+  {name:"VIP I", col:1, r0:18, rows:[["พ่อกิ๊ฟ", "กล้า"], ["แม่กิ๊ฟ", "ป้าสั้น"], ["พี่ตาล", ""], ["พี่นุช", "ป้าสั้น"]]},
+  {name:"Our Friends", col:1, r0:30, rows:[["มด", "แฟนแอมมี่"], ["แมน", "แอมมี่"], ["อาย", "ฮิวมัส"], ["ปืน", "ตี่ (เพื่อน)"]]},
+  {name:"Yacht's Friends", col:1, r0:44, rows:[["ตงตง", "ข้าวปุ้น"], ["น้องก้อย", "แม่ข้าวปุ้น"], ["น้องอาโม", "มะม่วง"], ["น้องบี", "โป๊ย"]]},
+  {name:"VIP III", col:2, r0:27, rows:[["คุณพงษ์ศักดิ์", "พี่เจน"], ["ภรรยาคุณพงษ์ศักดิ์", "คุณประวิท"], ["คุณพงษ์ศักดิ์", "พี่เจน"], ["คุณพงษ์ศักดิ์", "พี่เจน"]]},
+  {name:"Gift's Friends", col:2, r0:40, rows:[["พี่กะสะมา", "พี่จุ๋ม"], ["พี่ฟาฮัด", "พี่เมศ"], ["พี่แนท ช Sale", "พี่เจ้น"], ["พี่บีม", "พี่กอล์ฟ"]]},
+  {name:"Huhtamaki I", col:3, r0:27, rows:[["พี่ธีร์", "พี่วุฒิ"], ["แฟนพี่ธีร์", "พี่แยม"], ["พี่โป้ง", "น้องเอก"], ["พี่ไอซ์", "พี่นุช"]]},
+  {name:"Huhtamaki II", col:3, r0:40, rows:[["หมิว PE", "กี้"], ["ปู Pre-Press", "พี่ภานุ"], ["ทัชชา SB2", "พี่เงาะ"], ["ฝ้าย PR2", "พี่อู๋"]]},
+  {name:"VIP II", col:4, r0:18, rows:[["เฮียเอ็ม", "พ่อพล"], ["ตอง", "แม่ทิพย์"], ["พี่อ๋อย", "โกวปู"], ["เจ็ก", "แมน"]]},
+  {name:"Huhtamaki III", col:4, r0:34, rows:[["พี่ปุ๋ย พิมพ์", "พี่เอ้ Sale"], ["พี่บี PL", "พี่อั๋น MT"], ["พี่ใหม่ PL", "พี่เอก"], ["พี่โบ้", "พี่ก้อง"]]},
+  {name:"CNC Gym", col:4, r0:47, rows:[["เบส CNC", "พี่โรจน์ CNC"], ["บอส CNC", "พี่แจ๊ค CNC"], ["พี่จ่อน CNC", "พี่อิ่ม CNC"], ["พี่โบ๊ท", "พี่สิงห์"]]}
 ];
 
 const COLX = {1:150, 2:355, 3:618, 4:818}, COLY = {1:330, 2:700, 3:700, 4:330}, ROWH = 46, GAP = 90;
@@ -224,7 +228,7 @@ function room(g){
     const on = t===g.t;
     t.rows.forEach((r,ri)=>r.forEach((n,si)=>{
       const cx = si ? t.x+86 : t.x-26, cy = t.y + 28 + ri*ROWH, me = on && ri===g.row && si===g.side;
-      s += `<circle cx="${cx}" cy="${cy}" r="${me?30:18}" fill="${me?"var(--ribbon)":on?"var(--leaf)":"var(--chair)"}" ${n?"":"opacity=\".35\""}/>`;
+      s += `<circle cx="${cx}" cy="${cy}" r="${me?30:18}" fill="${me?"var(--ribbon)":on?"var(--leaf)":"var(--chair)"}" ${n?"":"opacity=\".35\""}/> `;
     }));
     s += `<rect x="${t.x}" y="${t.y}" width="60" height="${t.h}" rx="8" fill="${on?"var(--forest)":"var(--table)"}"/>
       <text transform="translate(${t.x+30} ${t.y+t.h/2}) rotate(-90)" text-anchor="middle" dominant-baseline="central" font-size="${on?40:34}" font-weight="700" font-family="var(--body)" fill="${on?"var(--card)":"var(--ink)"}">${esc(t.name)}</text>`;
@@ -257,7 +261,7 @@ function show(g){
     <p class="where">แถว ${g.side?"B (ขวา)":"A (ซ้าย)"} ตัวที่ ${g.row+1} นับจากฝั่งเวที</p>
     <div class="tabs" role="tablist">
       <button type="button" role="tab" id="tab-room" aria-selected="true" aria-controls="pane-room">โต๊ะอยู่ตรงไหน<small>ผังห้อง</small></button>
-      <button type="button" role="tab" id="tab-seats" aria-selected="false" aria-controls="pane-seats">ใครนั่งตรงไหน<small>รายชื่อ ${t.rows.flat().filter(Boolean).length} คน</small></button>
+      <button type="button" role="tab" id="tab-seats" aria-selected="false" aria-controls="pane-seats">ใครนั่งตรงไหน<small>รายชื่อ ${t.rows.flat().filter(Boolean).length}</small></button>
     </div>
     <div class="plans">
       <figure class="roomfig" id="pane-room" role="tabpanel" aria-labelledby="tab-room"><div class="zoombox">${room(g)}</div><figcaption>โต๊ะของคุณในห้อง</figcaption></figure>
@@ -279,7 +283,7 @@ function search(){
     b.innerHTML = `<span>${esc(g.name)}</span><span class="t">${esc(g.t.name)} · ${code(g)}</span>`;
     b.onclick = ()=>show(g); li.append(b); list.append(li);
   });
-  if (hits.length>10){ const li=document.createElement("li"); li.className="hint"; li.textContent=`และอีก ${hits.length-10} คน พิมพ์ให้ยาวขึ้นอีกรอบได้เลย`; list.append(li); }
+  if (hits.length>10){ const li=document.createElement("li"); li.className="hint"; li.textContent=`และอีก ${hits.length-10} คน พิมพ์ให้ยาวขึ้นอีกนิดเพื่อเจอได้ง่ายขึ้น`; list.append(li); }
 }
 q.addEventListener("input", search);
 let busy = false;
@@ -316,6 +320,14 @@ result.addEventListener("click", e=>{
   const b = e.target.closest(".tabs button"); if (!b || busy || b.getAttribute("aria-selected")==="true") return;
   result.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected", x===b));
   switchTab(b.id==="tab-room" ? "room" : "seats");
+});
+
+document.querySelector(".parking-btn").addEventListener("click", function(){
+  const url = this.dataset.parkingUrl;
+  const confirmed = window.confirm("ให้จอดรถที่ลานนี้เท่านั้น\n\nที่ลานจอดรถนี้มีบริการรถตู้รับ-ส่ง");
+  if (confirmed && url){
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
 });
 </script>
 </body>
