@@ -35,7 +35,7 @@ h1 .amp{color:var(--ribbon);font-size:.7em;padding-inline:.15em}
 .map .label small{display:block;font-size:12px;font-weight:600;opacity:.8}
 .map .go{margin-left:auto;font-size:22px;line-height:1}
 .parking-btn{background:linear-gradient(180deg,#edf8e6 0%,#e4f5db 100%);border:2px solid #cfe6c2;cursor:pointer;padding-inline:14px}
-.parking-btn svg{width:30px;height:30px;flex:none}
+.parking-btn svg{width:30px;height:30px;flex:none;display:block}
 .parking-btn .label{display:flex;flex-direction:column;align-items:flex-start;min-width:0;flex:1}
 .parking-btn .label strong{display:block;font-size:17px;line-height:1.2}
 .parking-btn .label small{display:block;font-size:11px;font-weight:700;opacity:.8}
@@ -138,9 +138,10 @@ h2{font-family:var(--script);font-weight:400;font-size:44px;margin:0;text-align:
 
     <button class="action-btn parking-btn" type="button" data-parking-url="https://maps.app.goo.gl/MLkubUUZhc8sUipXA" aria-label="จุดจอดรถ">
       <svg viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M18 16h17.5c9.4 0 16 6.2 16 14.2S44.9 44.4 35.5 44.4H29v15.6H18V16zm11 20.2h6.5c4.6 0 7.4-2.7 7.4-6.2s-2.8-6.2-7.4-6.2H29v12.4z" fill="#2f4a2c"/>
-        <circle cx="24.5" cy="47.2" r="4.2" fill="#2f4a2c"/>
-        <circle cx="42.5" cy="47.2" r="4.2" fill="#2f4a2c"/>
+        <rect x="9" y="9" width="46" height="46" rx="14" fill="#f4fbef" stroke="#cfe6c2" stroke-width="2.5"/>
+        <path d="M22 16h9.5c8.7 0 14.7 5.2 14.7 12.7 0 6.4-4.2 11.2-11.2 12.4l7.8 17.8h-8.5l-7.2-16.4H22V16zm8.5 18.8h2.8c4.5 0 7.1-2.2 7.1-5.7s-2.7-5.7-7.1-5.7h-2.8v11.4z" fill="#2f4a2c"/>
+        <circle cx="23" cy="48.2" r="3.3" fill="#2f4a2c"/>
+        <circle cx="41" cy="48.2" r="3.3" fill="#2f4a2c"/>
       </svg>
       <span class="label"><strong>จุดจอดรถ</strong><small>ลานจอดรถสำหรับงาน</small></span>
       <span class="go" aria-hidden="true">›</span>
