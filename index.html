@@ -28,7 +28,7 @@ h1 .amp{color:var(--ribbon);font-size:.7em;padding-inline:.15em}
 .fullnames{font-size:13px;opacity:.85;margin:0}
 .when{margin:8px 0 0;font-weight:600;letter-spacing:.08em;font-size:15px}
 .top-actions{display:grid;grid-template-columns:3fr 2fr;gap:12px;margin-top:-10px;align-items:stretch}
-.action-btn{display:flex;align-items:center;gap:12px;min-height:88px;padding:16px 18px;border-radius:18px;text-decoration:none;color:var(--ink);font-weight:700;box-shadow:0 6px 14px rgba(37,64,57,.12);transition:transform .15s ease,filter .15s ease,box-shadow .15s ease}
+.action-btn{display:flex;align-items:center;gap:12px;min-height:88px;padding:16px 18px;border-radius:18px;text-decoration:none;color:var(--ink);font-weight:700;box-shadow:0 6px 14px rgba(37,64,57,.12);transition:transform .15s ease,filter .15s ease,box-shadow .15s ease;min-width:0}
 .action-btn:hover,.action-btn:focus-visible{filter:brightness(.985);outline:3px solid var(--forest);outline-offset:3px;transform:translateY(-1px)}
 .action-btn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.08)}
 .map{background:#A4E4F2;border:2px solid transparent}
@@ -37,13 +37,13 @@ h1 .amp{color:var(--ribbon);font-size:.7em;padding-inline:.15em}
 .map .label strong{display:block;font-size:18px;line-height:1.2}
 .map .label small{display:block;font-size:12px;font-weight:600;opacity:.8}
 .map .go{margin-left:auto;font-size:22px;line-height:1}
-.parking-btn{background:var(--mint);border:2px solid var(--mint-strong);cursor:pointer;padding:0 14px 0 10px;justify-content:flex-start;overflow:hidden}
-.parking-btn .icon-wrap{width:84px;height:84px;flex:none;display:grid;place-items:center;border-radius:18px;background:var(--navy);box-shadow:inset 0 0 0 2px rgba(255,255,255,.08)}
-.parking-btn .icon-wrap svg{display:block;width:74px;height:74px}
+.parking-btn{background:var(--mint);border:2px solid var(--mint-strong);cursor:pointer;padding:0 14px 0 10px;justify-content:flex-start;overflow:hidden;gap:10px}
+.parking-btn .icon-wrap{width:68px;height:68px;flex:0 0 68px;display:grid;place-items:center;border-radius:18px;background:var(--navy);box-shadow:inset 0 0 0 2px rgba(255,255,255,.08)}
+.parking-btn .icon-wrap svg{display:block;width:58px;height:58px}
 .parking-btn .label{display:flex;flex-direction:column;align-items:flex-start;min-width:0;flex:1;line-height:1.1}
-.parking-btn .label strong{display:block;font-size:20px;line-height:1.2;font-weight:700}
-.parking-btn .label small{display:block;font-size:12px;font-weight:700;opacity:.85}
-.parking-btn .go{margin-left:auto;font-size:34px;line-height:1;color:var(--navy);font-weight:700;transform:translateY(-1px)}
+.parking-btn .label strong{display:block;font-size:18px;line-height:1.2;font-weight:700}
+.parking-btn .label small{display:block;font-size:11px;font-weight:700;opacity:.85}
+.parking-btn .go{margin-left:auto;font-size:28px;line-height:1;color:var(--navy);font-weight:700;transform:translateY(-1px)}
 .search{display:flex;flex-direction:column;gap:8px}
 .search label{font-weight:600;font-size:17px}
 #q{width:100%;box-sizing:border-box;font:inherit;font-size:18px;padding:14px 16px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
@@ -110,8 +110,12 @@ h2{font-family:var(--script);font-weight:400;font-size:44px;margin:0;text-align:
 @media (max-width:420px){
   .top-actions{grid-template-columns:1fr}
   .action-btn{min-height:76px}
-  .parking-btn .icon-wrap{width:74px;height:74px}
-  .parking-btn .icon-wrap svg{width:66px;height:66px}
+  .parking-btn{padding:0 10px 0 8px;gap:8px}
+  .parking-btn .icon-wrap{width:58px;height:58px;flex-basis:58px}
+  .parking-btn .icon-wrap svg{width:48px;height:48px}
+  .parking-btn .label strong{font-size:16px}
+  .parking-btn .label small{font-size:10px}
+  .parking-btn .go{font-size:24px}
 }
 @media (prefers-reduced-motion:no-preference){.card{animation:pop .35s ease-out}@keyframes pop{from{transform:scale(.98)}to{transform:none}}}
 </style>
