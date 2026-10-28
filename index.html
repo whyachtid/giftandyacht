@@ -38,8 +38,8 @@ h1 .amp{color:var(--ribbon);font-size:.7em;padding-inline:.15em}
 .map .label small{display:block;font-size:12px;font-weight:600;opacity:.8}
 .map .go{margin-left:auto;font-size:22px;line-height:1}
 .parking-btn{background:var(--mint);border:2px solid var(--mint-strong);cursor:pointer;padding:0 14px 0 10px;justify-content:flex-start;overflow:hidden;gap:10px}
-.parking-btn .icon-wrap{width:68px;height:68px;flex:0 0 68px;display:grid;place-items:center;border-radius:18px;background:var(--navy);box-shadow:inset 0 0 0 2px rgba(255,255,255,.08)}
-.parking-btn .icon-wrap svg{display:block;width:58px;height:58px}
+.parking-btn .icon-wrap{width:62px;height:62px;flex:0 0 62px;display:grid;place-items:center;border-radius:18px;background:var(--navy);box-shadow:inset 0 0 0 2px rgba(255,255,255,.08)}
+.parking-btn .icon-wrap svg{display:block;width:52px;height:52px}
 .parking-btn .label{display:flex;flex-direction:column;align-items:flex-start;min-width:0;flex:1;line-height:1.1}
 .parking-btn .label strong{display:block;font-size:18px;line-height:1.2;font-weight:700}
 .parking-btn .label small{display:block;font-size:11px;font-weight:700;opacity:.85}
@@ -111,8 +111,8 @@ h2{font-family:var(--script);font-weight:400;font-size:44px;margin:0;text-align:
   .top-actions{grid-template-columns:1fr}
   .action-btn{min-height:76px}
   .parking-btn{padding:0 10px 0 8px;gap:8px}
-  .parking-btn .icon-wrap{width:58px;height:58px;flex-basis:58px}
-  .parking-btn .icon-wrap svg{width:48px;height:48px}
+  .parking-btn .icon-wrap{width:56px;height:56px;flex-basis:56px}
+  .parking-btn .icon-wrap svg{width:46px;height:46px}
   .parking-btn .label strong{font-size:16px}
   .parking-btn .label small{font-size:10px}
   .parking-btn .go{font-size:24px}
@@ -150,10 +150,7 @@ h2{font-family:var(--script);font-weight:400;font-size:44px;margin:0;text-align:
       <span class="icon-wrap" aria-hidden="true">
         <svg viewBox="0 0 100 100" aria-hidden="true">
           <rect x="8" y="8" width="84" height="84" rx="18" fill="#0d2d4d"/>
-          <path d="M33 18h19c13 0 23 7 23 20 0 12-10 20-23 20H46v22H33V18zm13 14v12h6c7 0 11-3 11-8s-4-8-11-8h-6z" fill="#fff"/>
-          <path d="M33 18h19c13 0 23 7 23 20 0 12-10 20-23 20H46v22H33V18zm13 14v12h6c7 0 11-3 11-8s-4-8-11-8h-6z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" opacity="0.15"/>
-          <circle cx="37" cy="72" r="7" fill="#fff" opacity="0.9"/>
-          <circle cx="69" cy="72" r="7" fill="#fff" opacity="0.9"/>
+          <path d="M31 22h24c15 0 27 9 27 22 0 11-7 18-18 21v1c10 2 17 9 17 20v4H67v-4c0-9-6-15-14-17H31V22zm14 16v18h9c8 0 13-4 13-9s-5-9-13-9h-9z" fill="#fff"/>
         </svg>
       </span>
       <span class="label"><strong>จุดจอดรถ</strong><small>ลานจอดรถสำหรับงาน</small></span>
@@ -339,7 +336,7 @@ result.addEventListener("click", e=>{
 document.querySelector(".parking-btn").addEventListener("click", function () {
   const url = this.dataset.parkingUrl;
   const confirmed = window.confirm(
-    "ให้จอดรถที่ลานนี้เท่านั้น\n\nที่ลานจอดรถนี้มีบริการรถตู้และรถยนต์\n\nกด OK เพื่อเปิดแผนที่จุดจอดรถ"
+    "ให้จอดรถที่ลานนี้เท่านั้น\n\nมีบริการรถตู้และรถยนต์\n\nกด OK เพื่อเปิดแผนที่จุดจอดรถ"
   );
 
   if (confirmed && url) {
